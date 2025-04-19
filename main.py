@@ -1,9 +1,9 @@
-from my_classes import Person
+#from my_classes import Person
 
-def main():
+#def main():
     # Neue Person anlegen und zum Server posten
-    person = Person( "Anna", "Müller", "female")
-    person.post()
+    #person = Person("001", "Anna", "Müller", "female")
+    #person.post()
 
-if __name__ == "__main__":
-    main()
+#if __name__ == "__main__":
+#    main()
