@@ -1,10 +1,9 @@
-from my_functions import build_person, build_experiment
+from my_classes import Person
 
-if __name__=="__main__":
-    supervisor = input("Name: ")
+def main():
+    # Neue Person anlegen und zum Server posten
+    person = Person( "Anna", "Müller", "female")
+    person.post()
 
-    subject = build_person("Lars", "Schroeder", "male", 26)
-
-    experiment = build_experiment("Herzfrequenz-Analyse", "21.03.2025", supervisor, subject)
-
-print(experiment)
+if __name__ == "__main__":
+    main()
