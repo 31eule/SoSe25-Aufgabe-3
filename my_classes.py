@@ -1,15 +1,35 @@
 from datetime import datetime
+import json
+import requests
 
 class Person():
     def __init__(self, first_name, last_name, sex=None):
         self.first_name = first_name
         self.last_name = last_name
         self.sex = sex
+        
+    def post(self):
+        url = "http://localhost:5000/person"  # URL anpassen, wenn Server anders läuft
+        data = {"firstname": self.first_name}
+        response = requests.post(url, data = json.dumps(data))
+        print(f"PUT Person: {response.status_code} - {response.text}")
+        return response
 
 class Subject(Person):
-    def __init__(self, first_name, last_name, sex, dateofbirth):
+    def __init__(self, first_name, last_name, sex, dateofbirth, email=None):
         super().__init__(first_name, last_name, sex)
         self.dateofbirth = datetime.strptime(dateofbirth, "%Y-%m-%d")
+        self.email = email
+
+    def update_email(self):
+        url = f"http://localhost:5000/person/email"
+        data = {
+            "firstname": self.first_name,
+            "email": self.email
+        }
+        response = requests.post(url, json=data)
+        print(f"POST Email: {response.status_code} - {response.text}")
+        return response
 
     def get_age(self):
         age = datetime.today().year - self.dateofbirth.year

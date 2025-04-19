@@ -1,14 +1,16 @@
-from my_classes import Subject, Supervisor, Experiment
+from my_classes import Subject
+
+def main():
+    # Subject anlegen und auf den Server laden
+    subject = Subject("Anna", "Müller", "female", "1995-06-12")
+    subject.put()  # legt die Person mit dem Vornamen auf dem Server an
+
+    # Email aktualisieren
+    subject.email = "anna.mueller@example.com"
+    subject.update_email()
+
+    # Ausgabe zur Kontrolle
+    print(subject)
 
 if __name__ == "__main__":
- 
-    # Erstellen eines Leistungstests
-    supervisor = Supervisor("Firstname", "LastName")
-    subject = Subject("FirstName", "LastName", "female", "2001-10-31")
-    subject.estimate_max_hr()
-
-    experiment = Experiment("Leistungstest", "2021-01-01")
-    experiment.add_subject(subject)
-    experiment.add_supervisor(supervisor)
-
-    print(experiment)
+    main()
