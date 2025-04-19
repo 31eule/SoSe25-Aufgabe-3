@@ -1,4 +1,4 @@
-from my_classes import Subject
+from my_classes import Subject 
 
 def main():
     # Subject anlegen und auf den Server laden
